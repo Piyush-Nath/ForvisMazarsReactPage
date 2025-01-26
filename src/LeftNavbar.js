@@ -16,7 +16,7 @@ const LeftNavbar = () => {
     <div style={styles.navContainer}>
       {/* Logo Section */}
       <div style={styles.logo}>
-        <span style={styles.fmText}>fm</span>
+        <img src="/Group47 (1).jpg" alt="Logo" style={styles.logoImage} />
         <div style={styles.subText}>
           <span style={styles.bookMy}>Book My</span>
           <span style={styles.desk}>Desk</span>
@@ -74,12 +74,12 @@ const LeftNavbar = () => {
 
 const styles = {
   navContainer: {
-    width: "250px",
+    width: "150px",
     height: "100vh",
     backgroundColor: "#FFFFFF",
     display: "flex",
     flexDirection: "column",
-    padding: "20px",
+    padding: "5px",
     boxShadow: "2px 0 5px rgba(0,0,0,0.1)",
     fontFamily: "'Arial', sans-serif",
   },
@@ -88,10 +88,8 @@ const styles = {
     alignItems: "center",
     marginBottom: "30px",
   },
-  fmText: {
-    fontSize: "48px",
-    fontWeight: "bold",
-    color: "#0078D7",
+  logoImage: {
+    width: "100px", 
     marginRight: "10px",
   },
   subText: {
@@ -99,7 +97,7 @@ const styles = {
     flexDirection: "column",
   },
   bookMy: {
-    fontSize: "12px",
+    fontSize: "8px",
     color: "#5798d9",
     textTransform: "uppercase",
     fontWeight: "bold",

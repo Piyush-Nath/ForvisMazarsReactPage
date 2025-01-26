@@ -56,15 +56,15 @@ const UsersSection = () => {
   ]);
 
   const [filterActive, setFilterActive] = useState(false);
-  const [activeButton, setActiveButton] = useState(false); // State to track button click
+  const [activeButton, setActiveButton] = useState(false);
 
   const toggleFilter = () => {
     setFilterActive(!filterActive);
   };
 
   const handleButtonClick = () => {
-    setActiveButton(true); // Change the state to active on click
-    setTimeout(() => setActiveButton(false), 200); // Reset after 200ms
+    setActiveButton(true);
+    setTimeout(() => setActiveButton(false), 200);
   };
 
   const filteredUsers = filterActive
@@ -78,7 +78,7 @@ const UsersSection = () => {
         <h2 style={styles.title}>Users</h2>
         <div style={styles.profile}>
           <img
-            src="/path-to-profile-image.jpg" // Replace with actual profile image path
+            src="userphoto.jpg"
             alt="Profile"
             style={styles.profileImage}
           />
@@ -91,11 +91,7 @@ const UsersSection = () => {
         <div style={styles.card}>
           <h3 style={styles.cardTitle}>Total Users</h3>
           <p style={styles.cardValue}>{users.length}</p>
-          <img
-            src="/a.png" // Replace with your image path
-            alt="Wave Design"
-            style={styles.cardImage}
-          />
+          <img src="/a.png" alt="Wave Design" style={styles.cardImage} />
         </div>
 
         <div style={styles.card}>
@@ -114,8 +110,8 @@ const UsersSection = () => {
           <button
             style={{
               ...styles.button,
-              backgroundColor: activeButton ? "#006400" : "#ffffff", // Dark green on click
-              color: activeButton ? "#ffffff" : "#3a3b3d", // Text color adjustment
+              backgroundColor: activeButton ? "#006400" : "#ffffff",
+              color: activeButton ? "#ffffff" : "#3a3b3d",
             }}
             onClick={handleButtonClick}
           >
@@ -178,7 +174,34 @@ const UsersSection = () => {
               <td style={styles.tableCell}>{user.designation}</td>
               <td style={styles.tableCell}>{user.location}</td>
               <td style={styles.tableCell}>{user.floor}</td>
-              <td style={styles.tableCell}>{user.active ? "Yes" : "No"}</td>
+              <td style={styles.tableCell}>
+                {/* Outer box with a smaller size and inner green circle */}
+                <div
+                  style={{
+                    width: "20px", 
+                    height: "20px",
+                    backgroundColor: "white",
+                    borderRadius: "4px", 
+                    position: "relative",
+                    border: "1px solid #ccc", 
+                  }}
+                >
+                  {user.active && (
+                    <div
+                      style={{
+                        width: "10px", 
+                        height: "10px",
+                        backgroundColor: "green", 
+                        borderRadius: "50%",
+                        position: "absolute",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%, -50%)", 
+                      }}
+                    />
+                  )}
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -250,10 +273,10 @@ const styles = {
   },
   cardImage: {
     position: "absolute",
-    top: "10px",
-    right: "10px",
-    width: "50px",
-    height: "50px",
+    top: "0px",
+    right: "0px",
+    width: "100px",
+    height: "100px",
   },
   cards: {
     display: "flex",
@@ -303,7 +326,7 @@ const styles = {
   },
   table: {
     width: "100%",
-    borderCollapse: "collapse",
+    borderCollapse: "collapse"
   },
   tableHeader: {
     padding: "12px",
@@ -319,6 +342,7 @@ const styles = {
     borderBottom: "1px solid #ddd",
     fontSize: "14px",
     color: "#555",
+    backgroundColor: "#ffffff",
   },
 };
 
